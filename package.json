@@ -1,0 +1,23 @@
+{
+  "name": "auvo",
+  "version": "0.3.1-beta",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "packageManager": "pnpm@9.0.4",
+  "scripts": {
+    "dev:server": "pnpm -F=server start:dev",
+    "dev:client": "pnpm -F=client dev",
+    "build:client": "pnpm -F=client build",
+    "build:server": "pnpm -F=server build",
+    "server:migration:migrate": "pnpm -F=server typeorm:run",
+    "server:migration:generate": "pnpm build:dtos; pnpm build:server; pnpm -F=server typeorm:generate",
+    "server:migrate-and-run": " pnpm -F=dtos build; pnpm -F=server build; pnpm -F=server typeorm:run; pnpm -F=server start:dev",
+    "format": "pnpm -F=* format",
+    "lint": "pnpm -F=* lint",
+    "dev": "docker compose -f ./dev.docker-compose.yml up"
+  },
+  "dependencies": {
+    "moment": "^2.30.1"
+  }
+}
